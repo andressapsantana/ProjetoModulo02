@@ -14,12 +14,21 @@
     $sql = "SELECT * FROM usuario";
     if ($result = mysqli_query($conexao, $sql)) {
         if (mysqli_num_rows($result) > 0) {
+            
+            echo '<body class="login">';
+            echo '</div>';
+            echo '<div class="row" align="center">';
+            echo '<div style="padding-left: 0px;  padding-right: 0px;">';
+            echo '<img src="https://www.telecall.com/media/images/telecall-logo.svg?v=2" class="img-fluid" />
+          
+            </div>
+            <br>' ;    
+
             echo '<table border="1">';
             echo "<tr>";
             echo "<th>#</th>";
             echo "<th>Nome</th>";
             echo "<th>Login</th>";
-            echo "<th>Senha</th>";
             echo "<th>Ações</th>";
             echo "</tr>";
             while ($row = mysqli_fetch_array($result)) {
@@ -27,11 +36,8 @@
                 echo "<td>" . $row['ID_USUARIO'] . "</td>";
                 echo "<td>" . $row['NOME_USUARIO'] . "</td>";
                 echo "<td>" . $row['LOGIN_USUARIO'] . "</td>";
-                echo "<td>" . $row['SENHA_USUARIO'] . "</td>";
                 echo "<td>";
                 echo '<a href="read.php?id=' . $row['ID_USUARIO'] . '">visualizar</a>|';
-                echo '<a href="form_update.php?id=' . $row['ID_USUARIO'] . '">atualizar</a>|';
-                echo '<a href="delete.php?id=' . $row['ID_USUARIO'] . '">excluir</a>';
                 echo "</td>";
                 echo "</tr>";
             }
@@ -50,7 +56,6 @@
     mysqli_close($conexao);
     ?>
     <br>
-    <button><a href="form_cadastro.php">Incluir Novo Usuário</a></button>
     <button><a href="areaADM.php"> Voltar </a></button></a>
 </body>
 

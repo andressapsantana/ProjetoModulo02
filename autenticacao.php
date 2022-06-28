@@ -79,6 +79,7 @@ $rand = rand(1, 5);
             echo "</div>";
             echo "</div>";
             break;
+
         case 4:
       
          
@@ -104,8 +105,9 @@ $rand = rand(1, 5);
             echo "</div>";;
             echo "</div>";
             echo "</div>";
-            break;
-        case 5:
+            break; 
+
+            case 5:
     
      
             echo ' <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">';
@@ -133,4 +135,3 @@ $rand = rand(1, 5);
             echo "</div>";
             break;
     endswitch;
-?>

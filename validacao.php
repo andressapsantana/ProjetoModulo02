@@ -26,6 +26,7 @@ if($quant == 1) {
 	$row = mysqli_fetch_array($result);
 	$_SESSION['LoginUsuario'] = $usuario;
 	$_SESSION['CPF'] =  $row['CPF'];
+	$_SESSION['ID_USUARIO'] =  $row ['ID_USUARIO'];
 	header('Location: caminho_autenficacao.php');
 	
 	

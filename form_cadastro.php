@@ -31,7 +31,7 @@
               <br>
               Nome da Mãe:<input type="text" name="NomeMaterno" placeholder="Digite o nome materno">
               <br>
-              CPF:<input type="text" name="CpfUsuario" placeholder="Apenas numeros">
+              CPF:<input type="number" name="CpfUsuario" placeholder="Apenas numeros">
               <br>
               Telefone Celular:<input type="number" name="TelefoneCelular" placeholder="DDD+Numero">
               <br>

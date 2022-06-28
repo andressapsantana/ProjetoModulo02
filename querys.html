@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<header>
+</header>
+<body>
+    <h1>Querys usadas no projeto:</h1>
+    <br>
+    <h2>Cadastro:
+    $sql = "INSERT INTO usuario VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    </h2>
+    <br>
+    <h2>Consulta do Admin:
+    $sql = "SELECT * FROM usuario";
+    </h2>
+    <br>
+    <h2>Consulta do Usuario:
+    $sql = "SELECT * FROM usuario WHERE ID_USUARIO='$id_usuario'";
+    </h2>
+    <br>
+    <h2>Delete:
+    $sql = "DELETE FROM usuario WHERE ID_USUARIO = ? ";    
+    </h2>
+    <br>
+    <h2>Vizualização dos Logs:
+    $sql = "SELECT * FROM REGISTRO_USUARIO";
+    </h2>
+    <br>
+    <h2>Read:
+    $sql = "SELECT NOME_USUARIO, LOGIN_USUARIO, SENHA_USUARIO,TELEFONE_CELULAR, 
+    TELEFONE_FIXO, LOGRADOURO, NUMERO_RESIDENCIA,COMPLEMENTO, CEP FROM usuario WHERE ID_USUARIO = ?";
+    </h2>
+    <br>
+    <h2>Update:
+    $sql = "UPDATE usuario SET NOME_USUARIO=?, LOGIN_USUARIO=?, SENHA_USUARIO=?, TELEFONE_CELULAR=?, 
+        TELEFONE_FIXO=?, LOGRADOURO =?, NUMERO_RESIDENCIA=?,COMPLEMENTO=?, CEP=?  WHERE ID_USUARIO=?";
+    
+    </h2>
+    <h2>Validacao:
+    $query = "SELECT * from usuario WHERE LOGIN_USUARIO = '{$usuario}' and SENHA_USUARIO = '{$senha}'";
+    </h2>
+    <br>
+    <h2>Verificacao 2fa:
+    $sql2 = "SELECT * FROM usuario where login_usuario = '$usuario' ";
+    </h2>
+</body>
+</html>

@@ -1,8 +1,7 @@
 <?php   
 require_once "conexao.php";
 
-$sql = "DELETE FROM usuario WHERE ID_USUARIO = ? ";
-    
+$sql = "DELETE FROM usuario WHERE ID_USUARIO = ? ";    
     
     if($stmt = mysqli_prepare($conexao, $sql)){
         // liga as variáveis do "prepared statement" ao id passado por parâmetro
@@ -24,7 +23,8 @@ $sql = "DELETE FROM usuario WHERE ID_USUARIO = ? ";
             mysqli_close($conexao);
 
             // Registro deletado com sucesso. Redireciona para a página de consulta.
-            header("location: consulta.php");
+            
+            header("location: index.php");
             exit();
         } else{
             header("location: error.php");

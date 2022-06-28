@@ -5,7 +5,7 @@
  
 	// comando insert para inserir os dados no banco
     $sql = "INSERT INTO usuario VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-     
+    
     if($stmt = mysqli_prepare($conexao, $sql)){
 
 		// liga as variáveis do "prepared statement" aos parâmetros que foram passados
@@ -26,13 +26,14 @@
         $param_cep = $_POST["CepUsuario"];
         $param_login = $_POST["LoginUsuario"];
         $param_senha = $_POST["SenhaUsuario"];
-        
-        // Execute a query já com os "prepared statement" ajustados
+       
+
+        // Execute a query já com os "prepared statement" ajustados       
+       
         if(mysqli_stmt_execute($stmt)){
-
-            //comitar a transação
+            
             mysqli_commit($conexao);
-
+            
             // fecha o statement
             mysqli_stmt_close($stmt);
             
@@ -41,7 +42,7 @@
 
             // Se o usuário foi inserido com sucesso, então redireciono para a página principal.
             header("location: index.php");
-            exit();
+           exit();
         } else{
             header("location: error.php");
             exit();

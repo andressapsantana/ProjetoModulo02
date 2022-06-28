@@ -1,8 +1,8 @@
-
 <?php
 session_start();
 require_once "conexao.php";
 $btn2FA = $_POST['2fa'];
+$rowCPF3P = substr($_SESSION['CPF'], 0, 3);
 $rowCPF3U = substr($_SESSION['CPF'], -3);
 $usuario = $_SESSION['LoginUsuario'];
 
@@ -51,36 +51,90 @@ if ($result = mysqli_query($conexao, $sql2)) {
 
     if ($btn2FA==2) {
         if($_POST['cpf3P']==$rowCPF3P){
-            header('Location:areaUSU.php');
+            
+            $sql = "INSERT INTO REGISTRO_USUARIO(ID_LOG, HORA_ACESSO, METODO_ACESSO, STA_ACESSO, ID_USUARIO)
+            VALUES (NULL, SYSDATE(),'TRES PRIMEIROS NUMEROS CPF','ON', $iduser)";
+            
+            $resultRegistro = mysqli_query($conexao, $sql);
+            mysqli_commit($conexao);
+            mysqli_close($conexao);                
+            header("Location:areaUSU.php");
+
         } else {
-            header('Location:index.php');
+
+            $sql = "INSERT INTO registro_usuario 
+                VALUES (null, SYSDATE(),'TRES PRIMEIROS NUMEROS CPF','OFF', $iduser)";
+                $resultRegistro = mysqli_query($conexao, $sql);
+                mysqli_commit($conexao);
+                mysqli_close($conexao);          
+                header('Location:error.php');
         }
 
     } 
 
     if ($btn2FA==3) {
        if ($_POST['TelefoneCelular'] == $row['TELEFONE_CELULAR']){
-            header('Location:areaUSU.php');
+           
+        $sql = "INSERT INTO REGISTRO_USUARIO(ID_LOG, HORA_ACESSO, METODO_ACESSO, STA_ACESSO, ID_USUARIO)
+        VALUES (NULL, SYSDATE(),'NUMERO DO CELULAR','ON', $iduser)";
+        
+        $resultRegistro = mysqli_query($conexao, $sql);
+        mysqli_commit($conexao);
+        mysqli_close($conexao);                
+        header("Location:areaUSU.php");
+
         } else {
-            header('Location:index.php');
+
+             $sql = "INSERT INTO registro_usuario 
+                VALUES (null, SYSDATE(),'TRES PRIMEIROS NUMEROS CPF','OFF', $iduser)";
+                $resultRegistro = mysqli_query($conexao, $sql);
+                mysqli_commit($conexao);
+                mysqli_close($conexao);          
+                header('Location:error.php');
         
     } 
 
 
     if ($btn2FA==4) {
         if ($_POST['NomeMaterno'] == $row['NOME_MATERNO']){
-            header('Location:areaUSU.php');
+           
+            $sql = "INSERT INTO REGISTRO_USUARIO(ID_LOG, HORA_ACESSO, METODO_ACESSO, STA_ACESSO, ID_USUARIO)
+            VALUES (NULL, SYSDATE(),'NOME MATERNO','ON', $iduser)";
+            $resultRegistro = mysqli_query($conexao, $sql);
+            mysqli_commit($conexao);
+            mysqli_close($conexao);                
+            header("Location:areaUSU.php");
+
         } else {
-            header('Location:index.php');
+            
+            $sql = "INSERT INTO registro_usuario 
+                VALUES (null, SYSDATE(),'NOME MATERNO','OFF', $iduser)";
+                $resultRegistro = mysqli_query($conexao, $sql);
+                mysqli_commit($conexao);
+                mysqli_close($conexao);          
+                header('Location:error.php');
         }
 
     } 
 
     if ($btn2FA==5) {
         if ($_POST['DataNascimento'] == $row['DATA_NASCIMENTO']){
-            header('Location:areaUSU.php');
+            $sql = "INSERT INTO REGISTRO_USUARIO(ID_LOG, HORA_ACESSO, METODO_ACESSO, STA_ACESSO, ID_USUARIO)
+            VALUES (NULL, SYSDATE(),'DATA DE NASCIMENTO','ON', $iduser)";
+            
+            $resultRegistro = mysqli_query($conexao, $sql);
+            mysqli_commit($conexao);
+            mysqli_close($conexao);                
+            header("Location:areaUSU.php");
+
         } else {
-            header('Location:index.php');
+            
+            $sql = "INSERT INTO registro_usuario 
+                VALUES (null, SYSDATE(),'DATA DE NASCIMENTO','OFF', $iduser)";
+                $resultRegistro = mysqli_query($conexao, $sql);
+                mysqli_commit($conexao);
+                mysqli_close($conexao);          
+                header('Location:error.php');
         }
 
     } 
